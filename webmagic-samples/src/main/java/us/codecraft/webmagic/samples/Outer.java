@@ -32,8 +32,21 @@ public class Outer {
         }
     }
 
+    public static void printMulti(Outer... outers){
+        if (outers.length > 0) {
+            for (Outer outer: outers) {
+                System.out.println(outer);
+            }
+        }
+    }
+
     public static void main(String[] args) {
-        System.out.println(new Outer());
-        System.out.println(new Outer().setName("NewOuter"));
+        Outer o1 = new Outer();
+        Outer o2 = new Outer().setName("NewOuter");
+
+        System.out.println("print nothing");
+        printMulti();
+        System.out.println("the real print");
+        printMulti(o1, o2);
     }
 }
